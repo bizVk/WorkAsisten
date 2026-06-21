@@ -1,0 +1,15 @@
+{
+  "crm": "data/crm/",
+  "hr": "data/hr/",
+  "accounts": "data/accounts/",
+  "frontoffice": "data/frontoffice/",
+  "housekeeping": "data/housekeeping/",
+  "maintenance": "data/maintenance/",
+  "restaurant": "data/restaurant/",
+  "laundry": "data/laundry/",
+  "transport": "data/transport/",
+  "security": "data/security/",
+  "inventory": "data/inventory/",
+  "procurement": "data/procurement/",
+  "experience": "data/experience/"
+}

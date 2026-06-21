@@ -1,0 +1,122 @@
+{% extends 'layouts/layout_app.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/modules/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- DASHBOARD CONTENT -->
+<div class="dashboard-container">
+
+    <div class="welcome-box">
+        <h1>Welcome Admin</h1>
+    </div>
+
+    <div class="department-grid">
+
+        <div class="department-card">
+            <h3>🏨 Front Office</h3>
+            <a href="/frontoffice"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>🧹 Housekeeping</h3>
+            <a href="/housekeeping"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>🍽 Restaurant</h3>
+            <a href="/restaurant"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>🔧 Maintenance</h3>
+            <a href="/maintenance"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>💰 Accounts</h3>
+            <a href="/accounts"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>🛡 Security</h3>
+            <a href="/security"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>📅 Reservations</h3>
+            <a href="/reservations"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>👨‍🍳 Kitchen</h3>
+            <a href="/kitchen"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>🧺 Laundry</h3>
+            <a href="/laundry"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>📦 Inventory</h3>
+            <a href="/inventory"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>🛒 Procurement</h3>
+            <a href="/procurement"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>👥 HR</h3>
+            <a href="/hr"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>📈 Marketing</h3>
+            <a href="/marketing"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>💎 CRM</h3>
+            <a href="/crm"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>💻 IT Support</h3>
+            <a href="/itsupport"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>📊 Analytics</h3>
+            <a href="/analytics"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>🎉 Banquets</h3>
+            <a href="/banquets"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>🚗 Transport</h3>
+            <a href="/transport"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>⭐ Guest Experience</h3>
+            <a href="/experience"><button class="open-btn">Open</button></a>
+        </div>
+
+        <div class="department-card">
+            <h3>🏢 Corporate</h3>
+            <a href="/corporate"><button class="open-btn">Open</button></a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

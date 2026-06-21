@@ -1,0 +1,24 @@
+{
+  "departments": [
+    "frontoffice",
+    "reservations",
+    "crm",
+    "experience",
+    "restaurant",
+    "kitchen",
+    "housekeeping",
+    "laundry",
+    "maintenance",
+    "it_support",
+    "security",
+    "transport",
+    "accounts",
+    "analytics",
+    "marketing",
+    "procurement",
+    "inventory",
+    "hr",
+    "banquets",
+    "corporate"
+  ]
+}

@@ -1,0 +1,141 @@
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 220px;
+    height: 100vh;
+
+    background: #fff;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    
+    border-radius: 8px;
+    
+    overflow: hidden;
+
+    transition: 0.3s ease;
+
+    z-index: 9999;
+}
+
+/* COLLAPSED */
+body.sidebar-collapsed .sidebar {
+    width: 70px;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 5px;
+    background: linear-gradient(135deg,#ff2d75,#ff5a5a);
+    color: white;
+}
+
+.logo-text {
+    margin: 0;
+}
+
+body.sidebar-collapsed .logo-text {
+    display: none;
+}
+
+/* TOGGLE BUTTON */
+.toggle-btn {
+    border: none;
+    background: rgba(255,255,255,0.2);
+    color: white;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.main {
+    margin-left: 220px;
+     
+    padding: 8px;
+
+    min-height: calc(100vh - 70px);
+
+    transition: all 0.3s ease;
+}
+
+body.sidebar-collapsed .main {
+    margin-left: 70px;
+}
+
+.menu li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px;
+    text-decoration: none;
+    color: #334155;
+
+    border-radius: 10px;
+}
+
+.menu li a:hover {
+    background: #fdf2f8;
+    color: #e91e63;
+}
+
+/* hide text */
+body.sidebar-collapsed .text {
+    display: none;
+}
+
+/* center icons */
+body.sidebar-collapsed .menu li a,
+body.sidebar-collapsed .logout-btn {
+    justify-content: center;
+}
+
+/* logout */
+.logout-section {
+    border-top: 1px solid #eee;
+    padding: 10px;
+}
+
+.logout-btn {
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+    color: #e11d48;
+    text-decoration: none;
+}
+
+.logout-btn:hover {
+    background: #fef2f2;
+    color: #e11d48;
+}
+body.sidebar-collapsed .main {
+    margin-left: 70px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .sidebar {
+        left: -220px;
+    }
+
+    body.sidebar-collapsed .sidebar {
+        left: 0;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+}

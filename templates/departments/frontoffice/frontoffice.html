@@ -1,0 +1,41 @@
+{% extends 'layouts/layout_app.html' %}
+
+{% block title %}Front Office{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/modules/frontoffice/base.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/modules/frontoffice/header.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/modules/frontoffice/calendar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/modules/frontoffice/booking-bar.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/modules/frontoffice/modal.css') }}">
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="frontoffice-container">
+
+    {% include 'departments/frontoffice/header.html' %}
+    {% include 'departments/frontoffice/calendar.html' %}
+
+</div>
+
+{% include 'departments/frontoffice/modal.html' %}
+
+{% endblock %}
+{% block scripts %}
+
+<script id="pms-data" type="application/json">
+{{ {
+    "reservations": reservations,
+    "calendarDays": calendar_days
+} | tojson }}
+</script>
+
+<script src="{{ url_for('static', filename='js/modules/frontoffice/data.js') }}"></script>
+<script src="{{ url_for('static', filename='js/modules/frontoffice/modal.js') }}"></script>
+<script src="{{ url_for('static', filename='js/modules/frontoffice/timeline.js') }}"></script>
+<script src="{{ url_for('static', filename='js/modules/frontoffice/main.js') }}"></script>
+
+{% endblock %}

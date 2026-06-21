@@ -1,0 +1,26 @@
+.frontoffice-container{
+    position: fixed;
+    top: 35px;
+    height: 100vh;
+
+    left: 220px;
+    width: calc(100% - 220px);
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    padding:2px;
+    box-sizing: border-box;
+
+    overflow: auto;
+    z-index: 1000;
+    
+}
+
+body.sidebar-collapsed .frontoffice-container{
+    left: 70px;
+    width: calc(100% - 70px);
+    bottom: 0;
+}
+

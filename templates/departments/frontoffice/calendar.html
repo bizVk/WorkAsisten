@@ -1,0 +1,163 @@
+
+<div class="calendar-section"
+     style="
+       --day-width: {{ day_width }}px;
+       --days: {{ days }};
+     ">
+<!-- Toolbar -->
+<div class="calendar-title">
+
+    <div class="title-left">
+
+        <div class="view-tabs">
+
+            <button class="tab-btn active"
+                    onclick="showView('stayview',this)">
+                Stay View
+            </button>
+
+            <button class="tab-btn"
+                    onclick="showView('reports',this)">
+                Reports
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="title-right">
+
+        <div class="zoom-controls">
+
+            <button class="{% if days == 7 %}active{% endif %}"
+                    onclick="window.location='?days=7'">
+                7 Days
+            </button>
+
+            <button class="{% if days == 15 %}active{% endif %}"
+                    onclick="window.location='?days=15'">
+                15 Days
+            </button>
+
+            <button class="{% if days == 30 %}active{% endif %}"
+                    onclick="window.location='?days=30'">
+               30 Days
+            </button>
+        </div>
+
+        <button class="btn">
+            Today
+        </button>
+
+        <button class="btn primary">
+            New Booking
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Stay View -->
+<div id="stayview">
+
+    <div class="rack-calendar">
+
+        <div class="calendar-wrapper">
+
+            <!-- Header -->
+            <div class="calendar-header">
+
+                <div class="header-spacer">
+                    <h4>Rooms</h4>
+                </div>
+
+                <div class="calendar-days">
+
+                    {% for day in calendar_days %}
+                    <div class="calendar-day">
+
+                        <span class="day-date">
+                            {{ day.date }}
+                        </span>
+
+                        <span class="day-month">
+                            {{ day.month }}
+                        </span>
+
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            <!-- Body -->
+            <div class="calendar-body">
+
+                {% for category, rooms in room_inventory.items() %}
+
+                <div class="rack-row category-row">
+
+                    <div class="category-header">
+                        {{ category }}
+                    </div>
+
+                    <div class="category-timeline">
+
+                        {% for day in calendar_days %}
+                        <div class="calendar-cell day-column"
+                             data-date="{{ day.full_date }}">
+                        </div>
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+                {% for room in rooms %}
+
+                <div class="rack-row">
+
+                    <div class="room-name">
+                        {{ room }}
+                    </div>
+
+                    <div class="room-timeline"
+                         data-room="{{ room }}">
+
+                        {% for day in calendar_days %}
+                        <div class="calendar-cell"
+                             data-date="{{ day.full_date }}">
+                        </div>
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Reports -->
+<div id="reports" style="display:none;">
+
+    <div class="report-placeholder">
+
+        <h2>Reports Module</h2>
+
+        <p>Coming Soon...</p>
+
+    </div>
+
+</div>
+
+
+</div>

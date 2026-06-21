@@ -1,0 +1,98 @@
+{% extends 'layouts/layout_app.html' %}
+
+{% block title %}
+CRM Dashboard
+{% endblock %}
+
+{% block styles %}
+
+<link rel="stylesheet"
+      href="{{ url_for('static',
+      filename='css/modules/crm.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="crm-container">
+
+```
+<!-- PAGE TITLE -->
+<div class="welcome-box">
+    <h1>💎 CRM Dashboard</h1>
+</div>
+
+<!-- KPI CARDS -->
+<div class="crm-cards">
+
+    <div class="crm-card">
+        <h4>Total Guests</h4>
+        <p>{{ total_guests }}</p>
+    </div>
+
+    <div class="crm-card">
+        <h4>Positive Reviews</h4>
+        <p>{{ positive }}</p>
+    </div>
+
+    <div class="crm-card">
+        <h4>Neutral Reviews</h4>
+        <p>{{ neutral }}</p>
+    </div>
+
+    <div class="crm-card">
+        <h4>Negative Reviews</h4>
+        <p>{{ negative }}</p>
+    </div>
+
+</div>
+
+<!-- CHARTS GRID -->
+<div class="dashboard-grid">
+
+    <div class="card">
+        <h3>NPS Score</h3>
+        <canvas id="npsChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h3>Review Outcome</h3>
+        <canvas id="reviewChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h3>Nationality Analysis</h3>
+        <canvas id="nationChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h3>Guest Comments</h3>
+        <p>No comments available yet.</p>
+    </div>
+
+    <div class="card">
+        <h3>City Analysis</h3>
+        <canvas id="cityChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h3>Monthly Trends</h3>
+        <canvas id="trendChart"></canvas>
+    </div>
+
+</div>
+```
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='js/modules/crm/crm_nps.js') }}"></script>
+<script src="{{ url_for('static', filename='js/modules/crm/crm_reviews.js') }}"></script>
+<script src="{{ url_for('static', filename='js/modules/crm/crm_city.js') }}"></script>
+<script src="{{ url_for('static', filename='js/modules/crm/crm_nationality.js') }}"></script>
+<script src="{{ url_for('static', filename='js/modules/crm/crm_trends.js') }}"></script>
+{% endblock %}

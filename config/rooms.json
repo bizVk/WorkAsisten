@@ -1,0 +1,9 @@
+{
+  "standard": 15,
+  "deluxe": 10,
+  "vvip": 5,
+  "dorm_4_bed": 6,
+  "dorm_6_bed": 6,
+  "dorm_8_bed": 6,
+  "female_dorm": 2
+}

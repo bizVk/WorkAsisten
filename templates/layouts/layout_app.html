@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}PMS System{% endblock %}
+    </title>
+
+    <!-- GLOBAL CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/global/sidebar.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/global/header.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/global/footer.css') }}">
+
+    <!-- PAGE SPECIFIC CSS -->
+    {% block styles %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    {% include 'partials/sidebar.html' %}
+
+    <!-- PAGE WRAPPER -->
+    <div class="page-wrapper">
+
+        <!-- HEADER -->
+        {% include 'partials/header.html' %}
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        <!-- FOOTER -->
+        {% include 'partials/footer.html' %}
+
+    </div>
+
+    <!-- GLOBAL JS -->
+    <script src="{{ url_for('static',
+    filename='js/global/sidebar.js') }}"></script>
+
+    <!-- PAGE JS -->
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+
+</html>

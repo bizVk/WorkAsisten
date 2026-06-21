@@ -1,0 +1,66 @@
+/* ==========================================
+PAGE HEADER
+========================================== */
+
+.frontoffice-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.frontoffice-header h1{
+    margin:0;
+    color:#e91e63;
+    font-size:28px;
+    font-weight:700;
+}
+
+.frontoffice-header p{
+    margin-top:5px;
+    color:#666;
+    font-size:14px;
+}
+
+
+/* ==========================================
+FRONT OFFICE HEADER
+========================================== */
+
+.frontoffice-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 20px;
+
+    margin-bottom: 25px;
+
+    background: white;
+
+    border-radius: 16px;
+
+    box-shadow: 0 6px 18px rgba(255, 45, 117, 0.12);
+}
+
+.frontoffice-header h1 {
+    margin: 0;
+
+    color: #e91e63;
+
+    font-size: 28px;
+
+    font-weight: 700;
+}
+
+.frontoffice-header p {
+    margin: 6px 0 0 0;
+
+    color: #777;
+
+    font-size: 14px;
+}

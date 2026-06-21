@@ -1,0 +1,52 @@
+/* =========================
+   GLOBAL LAYOUT SYSTEM
+========================= */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    overflow-x: hidden;
+}
+
+/* =========================
+   MAIN CONTENT AREA
+   (THIS FIXES YOUR HEADER OVERLAP)
+========================= */
+
+.main {
+    flex: 1;
+    padding: 20px;
+}
+/* =========================
+   COLLAPSED SIDEBAR STATE
+========================= */
+
+.sidebar.collapsed ~ .page-wrapper .main {
+    margin-left: 70px;
+}
+/* =========================
+   OPTIONAL: PAGE WRAPPER
+========================= */
+
+.page-wrapper {
+    margin-left: 220px;
+    margin-top: 70px;
+    min-height: 100vh;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+/* =========================
+   RESPONSIVE FIX
+========================= */
+
+@media (max-width: 768px) {
+    .main {
+        margin-left: 0;
+        margin-top: 70px;
+        padding: 10px;
+    }
+}

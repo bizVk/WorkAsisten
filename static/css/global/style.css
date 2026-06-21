@@ -1,0 +1,787 @@
+/* Body */
+body {
+
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, sans-serif;
+
+    overflow-x: hidden;
+
+    background-size: cover;
+
+    background-position: center;
+
+    min-height: 100vh;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 60px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 25px;
+
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+
+    border-bottom: 1px solid #eee;
+
+    z-index: 1000;
+}
+
+header .logo{
+    font-weight: bold;
+    color: #e91e63;
+}
+
+header .title{
+    color: #444;
+    font-size: 14px;
+}
+
+/* FOOTER */
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+
+    border-top: 1px solid #eee;
+
+    font-size: 13px;
+    color: #666;
+
+    z-index: 1000;
+}
+
+/* avoid overlap */
+body{
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+
+
+
+/* Overlay */
+.overlay {
+
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255,255,255,0.6);
+
+
+    z-index: 1;
+}
+
+/* Login Box */
+.login-box {
+
+    position: absolute;
+
+    left: 40px;
+    top: 70px;
+
+    width: 320px;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.95);
+
+    box-shadow:
+    0px 10px 35px rgba(0,0,0,0.1);
+
+    z-index: 10;
+
+    animation: slideLeft 1.5s ease;
+}
+
+/* Shake Effect */
+.shake {
+    animation: shake 0.5s;
+}
+
+/* Logo */
+.robot-logo {
+
+    text-align: center;
+
+    font-size: 60px;
+}
+
+/* Heading */
+h1 {
+
+    text-align: center;
+
+    color: #e91e63;
+
+    font-size: 38px;
+}
+
+/* Paragraph */
+p {
+
+    text-align: center;
+
+    color: #444;
+}
+
+/* Inputs */
+.userid-box,
+.password-box {
+
+    width: 100%;
+
+    padding: 16px;
+
+    margin-top: 15px;
+
+    border-radius: 14px;
+
+    border: 2px solid #ddd;
+
+    font-size: 16px;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition: 0.3s;
+}
+
+/* Input Hover */
+.userid-box:hover,
+.password-box:hover {
+
+    border-color: #ff4d79;
+}
+
+/* Input Focus */
+.userid-box:focus,
+.password-box:focus {
+
+    box-shadow:
+    0px 0px 15px rgba(255,77,121,0.3);
+}
+
+/* Login Button */
+.login-btn {
+
+    width: 100%;
+
+    padding: 16px;
+
+    margin-top: 25px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background:
+    linear-gradient(to right,#ff2d75,#ff5a5a);
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+
+    transform: scale(1.05);
+
+    box-shadow:
+    0px 8px 25px rgba(255,45,117,0.5);
+}
+
+/* OR */
+.or-line {
+
+    text-align: center;
+
+    margin: 20px 0;
+
+    color: #555;
+}
+
+/* Google Button */
+.google-btn {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    border: 2px solid #ddd;
+
+    background: white;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    transition: 0.3s;
+}
+
+.google-btn:hover {
+
+    transform: scale(1.03);
+
+    background: #fafafa;
+}
+
+/* Google Image */
+.google-btn img {
+
+    width: 25px;
+}
+
+/* Robots Section */
+.robots-section {
+
+    position: absolute;
+
+    left: 430px;
+    top: 80px;
+
+    display: flex;
+
+    gap: 25px;
+
+    z-index: 10;
+
+    flex-wrap: wrap;
+}
+
+/* Robot Card */
+.robot-card {
+
+    width: 220px;
+
+    text-align: center;
+
+    transition: 0.4s;
+}
+
+.robot-card:hover {
+
+    transform: translateY(-8px);
+}
+
+/* Speech */
+.speech {
+
+    background: white;
+
+    padding: 18px;
+
+    border-radius: 20px;
+
+    margin-bottom: 15px;
+
+    box-shadow:
+    0px 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Robot */
+.robot {
+
+    width: 220px;
+
+    animation:
+    robotMove 3s ease-in-out infinite;
+
+    transition: 0.4s;
+}
+
+.robot:hover {
+
+    transform:
+    scale(1.08)
+    rotate(3deg);
+}
+
+/* Robot Name */
+h2 {
+
+    background: white;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    margin-top: 10px;
+
+    font-size: 22px;
+
+    box-shadow:
+    0px 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Slide Animation */
+@keyframes slideLeft {
+
+    from {
+
+        transform: translateX(-500px);
+
+        opacity: 0;
+    }
+
+    to {
+
+        transform: translateX(0);
+
+        opacity: 1;
+    }
+}
+
+/* Robot Floating */
+@keyframes robotMove {
+
+    0% {
+
+        transform:
+        translateY(0px)
+        rotate(0deg);
+    }
+
+    50% {
+
+        transform:
+        translateY(-18px)
+        rotate(2deg);
+    }
+
+    100% {
+
+        transform:
+        translateY(0px)
+        rotate(0deg);
+    }
+}
+
+/* Shake */
+@keyframes shake {
+
+    0% { transform: translateX(0); }
+
+    25% { transform: translateX(-8px); }
+
+    50% { transform: translateX(8px); }
+
+    75% { transform: translateX(-8px); }
+
+    100% { transform: translateX(0); }
+}
+
+/* Responsive */
+@media(max-width:1200px){
+
+    .robots-section{
+
+        position: relative;
+
+        left: 0;
+
+        top: 40px;
+
+        justify-content: center;
+
+        padding-bottom: 50px;
+    }
+
+    .login-box{
+
+        position: relative;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+    }
+}
+/* Body */
+body {
+
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, sans-serif;
+
+    overflow-x: hidden;
+
+    background-size: cover;
+
+    background-position: center;
+
+    min-height: 100vh;
+}
+
+/* Overlay */
+.overlay {
+
+    position: fixed;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255,255,255,0.6);
+
+    z-index: 1;
+}
+
+/* Login Box */
+.login-box {
+
+    position: absolute;
+
+    left: 40px;
+    top: 70px;
+
+    width: 320px;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.95);
+
+    box-shadow: 0px 10px 35px rgba(0,0,0,0.1);
+
+    z-index: 10;
+
+    animation: slideLeft 1.5s ease;
+}
+
+/* Shake Effect */
+.shake {
+    animation: shake 0.5s;
+}
+
+/* Logo */
+.robot-logo {
+    text-align: center;
+    font-size: 60px;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #e91e63;
+    font-size: 38px;
+}
+
+/* Paragraph */
+p {
+    text-align: center;
+    color: #444;
+}
+
+/* Inputs */
+.userid-box,
+.password-box {
+
+    width: 100%;
+    padding: 16px;
+    margin-top: 15px;
+
+    border-radius: 14px;
+    border: 2px solid #ddd;
+
+    font-size: 16px;
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition: 0.3s;
+}
+
+/* Input Hover */
+.userid-box:hover,
+.password-box:hover {
+    border-color: #ff4d79;
+}
+
+/* Input Focus */
+.userid-box:focus,
+.password-box:focus {
+    box-shadow: 0px 0px 15px rgba(255,77,121,0.3);
+}
+
+/* Login Button */
+.login-btn {
+
+    width: 100%;
+    padding: 16px;
+    margin-top: 25px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: linear-gradient(to right,#ff2d75,#ff5a5a);
+
+    color: white;
+    font-size: 18px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 25px rgba(255,45,117,0.5);
+}
+
+/* OR */
+.or-line {
+    text-align: center;
+    margin: 20px 0;
+    color: #555;
+}
+
+/* Google Button */
+.google-btn {
+
+    width: 100%;
+    padding: 15px;
+
+    border-radius: 15px;
+    border: 2px solid #ddd;
+
+    background: white;
+    cursor: pointer;
+
+    font-size: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    transition: 0.3s;
+}
+
+.google-btn:hover {
+    transform: scale(1.03);
+    background: #fafafa;
+}
+
+/* Google Image */
+.google-btn img {
+    width: 25px;
+}
+
+/* Robots Section */
+.robots-section {
+
+    position: absolute;
+
+    left: 430px;
+    top: 80px;
+
+    display: flex;
+
+    gap: 25px;
+
+    z-index: 10;
+
+    flex-wrap: wrap;
+}
+
+/* Robot Card */
+.robot-card {
+    width: 220px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.robot-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Speech */
+.speech {
+    background: white;
+    padding: 18px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Robot */
+.robot {
+    width: 220px;
+    animation: robotMove 3s ease-in-out infinite;
+    transition: 0.4s;
+}
+
+.robot:hover {
+    transform: scale(1.08) rotate(3deg);
+}
+
+/* Robot Name */
+h2 {
+    background: white;
+    padding: 18px;
+    border-radius: 18px;
+    margin-top: 10px;
+    font-size: 22px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+}
+
+/* Slide Animation */
+@keyframes slideLeft {
+    from {
+        transform: translateX(-500px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Robot Floating */
+@keyframes robotMove {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-18px) rotate(2deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+/* Shake */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    50% { transform: translateX(8px); }
+    75% { transform: translateX(-8px); }
+    100% { transform: translateX(0); }
+}
+
+/* Responsive */
+@media(max-width:1200px){
+
+    .robots-section{
+        position: relative;
+        left: 0;
+        top: 40px;
+        justify-content: center;
+        padding-bottom: 50px;
+    }
+
+    .login-box{
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+
+/* ========================= */
+/* 🟣 HEADER (NEW ADDED ONLY) */
+/* ========================= */
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+
+    border-bottom: 1px solid #eee;
+
+    z-index: 1000;
+}
+
+header .logo{
+    font-weight: bold;
+    font-size: 18px;
+    color: #e91e63;
+}
+
+header .title{
+    font-size: 14px;
+    color: #444;
+}
+
+/* ========================= */
+/* 🟣 FOOTER (NEW ADDED ONLY) */
+/* ========================= */
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+
+    border-top: 1px solid #eee;
+
+    font-size: 13px;
+    color: #666;
+
+    z-index: 1000;
+}
+
+/* Prevent overlap with footer */
+body{
+    padding-bottom: 50px;
+}

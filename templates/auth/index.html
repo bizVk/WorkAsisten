@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Manager Dashboard</title>
+
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/global/style.css') }}">
+</head>
+
+<body>
+
+    <!-- ================= HEADER (ADDED) ================= -->
+    <header>
+        <div class="logo">PMS SYSTEM</div>
+        <div class="title">AI Manager Dashboard</div>
+    </header>
+
+    <div class="overlay"></div>
+
+    <!-- Login Box -->
+    <div class="login-box" id="loginBox">
+
+        <div class="robot-logo">
+            🤖
+        </div>
+
+        <h1>TASK ASSISTANT</h1>
+
+        <p>Your Smart Productivity Partner</p>
+
+        <!-- User ID -->
+        <input
+            type="text"
+            placeholder="Enter User ID"
+            class="userid-box"
+            id="userid"
+        >
+
+        <!-- Password -->
+        <input
+            type="password"
+            placeholder="Enter Password"
+            class="password-box"
+            id="password"
+        >
+
+        <!-- Login Button -->
+        <button
+            class="login-btn"
+            onclick="login()"
+        >
+            Login
+        </button>
+
+        <div class="or-line">
+            OR
+        </div>
+
+        <!-- Google Login -->
+        <button class="google-btn">
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/300/300221.png"
+            >
+
+            Login with Google
+
+        </button>
+
+    </div>
+
+    <!-- Robots -->
+    <div class="robots-section">
+
+        <div class="robot-card">
+
+            <div class="speech">
+                Plumbing Operations Manager
+            </div>
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
+                class="robot"
+            >
+
+            <h2>PLUMBER MANAGER</h2>
+
+        </div>
+
+        <div class="robot-card">
+
+            <div class="speech">
+                Electrical Team Manager
+            </div>
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png"
+                class="robot"
+            >
+
+            <h2>ELECTRICIAN MANAGER</h2>
+
+        </div>
+
+        <div class="robot-card">
+
+            <div class="speech">
+                Carpentry Project Manager
+            </div>
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png"
+                class="robot"
+            >
+
+            <h2>CARPENTER MANAGER</h2>
+
+        </div>
+
+        <div class="robot-card">
+
+            <div class="speech">
+                Housekeeping Operations Manager
+            </div>
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/4712/4712114.png"
+                class="robot"
+            >
+
+            <h2>HOUSEKEEPING MANAGER</h2>
+
+        </div>
+
+    </div>
+
+    <!-- ================= FOOTER (ADDED) ================= -->
+    <footer>
+        © 2026 PMS System | All Rights Reserved
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/global/script.js') }}"></script>
+
+</body>
+</html>

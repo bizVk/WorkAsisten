@@ -1,0 +1,44 @@
+/* ==========================================
+ROOM RACK LAYOUT
+========================================== */
+
+.rack-container{
+    display:flex;
+    border-radius:10px;
+    overflow:hidden;
+    background:white;
+}
+
+.rack-sidebar{
+    height: 35px;
+    width:480px;
+    flex-shrink:0;
+
+    background:white;
+
+    border-right:1px solid #eee;
+
+    z-index:10;
+}
+
+.sidebar-header{
+    height: 35px;
+
+    display:flex;
+    align-items:center;
+
+    padding: 5px;
+
+    font-weight:300;
+
+    color:#e91e63;
+
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.rack-calendar{
+    overflow:auto;
+
+    flex:8;
+}

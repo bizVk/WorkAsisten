@@ -1,0 +1,35 @@
+/* ==========================================
+HEADER BUTTONS
+========================================== */
+
+.dashboard-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.action-btn{
+    padding:10px 16px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+
+    background:linear-gradient(
+        135deg,
+        #038932,
+        #270249
+    );
+
+    color:white;
+    font-size:10px;
+    font-weight:300;
+
+    transition:0.3s;
+}
+
+.action-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 6px 18px rgba(255,45,117,0.25);
+}
