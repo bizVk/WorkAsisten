@@ -169,7 +169,7 @@ def frontoffice():
     elif days == 15:
         day_width = 80
     else:
-        day_width = 50
+        day_width = 45
 
     room_inventory = generate_room_inventory()
     reservations = generate_reservations()

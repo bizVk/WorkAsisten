@@ -10,6 +10,18 @@ function toggleSidebar() {
             new Event("sidebarResized")
         );
 
+        if (
+            window.location.pathname.includes(
+                "frontoffice"
+            )
+        ) {
+
+            window.dispatchEvent(
+                new Event("frontofficeResize")
+            );
+
+        }
+
     }, 300);
 
 }

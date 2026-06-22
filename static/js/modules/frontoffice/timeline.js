@@ -135,59 +135,62 @@ if (button) {
 // ==========================================
 // CALENDAR ZOOM
 // ==========================================
-function updateDayWidth(days){
+    function updateDayWidth(days){
+
+    const roomColumn = 160;
+
+    const visibleWidth =
+        document.querySelector(".rack-calendar")
+        .clientWidth;
+
+    const availableWidth =
+        visibleWidth - roomColumn;
 
     let dayWidth;
 
-    if(days === 7){
-        dayWidth = 120;
-    }
-    else if(days === 15){
-        dayWidth = 80;
-    }
-    else{
-        dayWidth = 50;   // 30 days
-    }
+if (days === 7) {
+
+    dayWidth = Math.floor(
+        (availableWidth * 0.98) / days
+    );
+
+}
+else if (days === 15) {
+
+    dayWidth = Math.floor(
+        (availableWidth * 0.98) / days
+    );
+
+}
+else {
+
+    dayWidth = Math.floor(
+        (availableWidth * 0.98) / days
+    );
+
+}
 
     document.documentElement.style.setProperty(
         "--day-width",
         dayWidth + "px"
     );
 
-    console.log(
-        "Days =", days,
-        "Width =", dayWidth
+    document.documentElement.style.setProperty(
+        "--days",
+        days
     );
-}
-    function showCalendarDays(days){
 
-    document
-        .querySelectorAll(".day-column")
-        .forEach(col=>{
-
-            const index =
-                parseInt(
-                    col.dataset.dayIndex || 0
-                );
-
-            if(index < days){
-                col.style.display = "";
-            }
-            else{
-                col.style.display = "none";
-            }
-
-        });
-
+    console.log(
+        "Day Width =", dayWidth
+    );
 }
    
 
-    function changeCalendarZoom(days) {    
+    function changeCalendarZoom(days) {
 
-    
     console.log("Zoom clicked:", days);
 
-    updateDayWidth(currentDays);
+    updateDayWidth(days);
 
     console.log("CSS updated");
 
@@ -195,9 +198,19 @@ function updateDayWidth(days){
         .querySelectorAll(".booking-bar")
         .forEach(bar => bar.remove());
 
-
-
     showCalendarDays(days);
+    const wrapper =
+    document.querySelector(
+        ".calendar-wrapper"
+    );
+
+const rack =
+    document.querySelector(
+        ".rack-calendar"
+    );
+
+wrapper.style.minWidth =
+    rack.clientWidth + "px";
 
     renderTimeline();
 
@@ -227,20 +240,26 @@ if (
 }
 
 });
-window.addEventListener("sidebarResized", () => {
+window.addEventListener(
+    "frontofficeResize",
+    () => {
 
-    const urlParams =
-        new URLSearchParams(window.location.search);
+        const rack =
+            document.querySelector(
+                ".rack-calendar"
+            );
 
-    const currentDays =
-        parseInt(urlParams.get("days")) || 30;
+        const wrapper =
+            document.querySelector(
+                ".calendar-wrapper"
+            );
 
-    updateDayWidth(currentDays);
+        if (rack && wrapper) {
 
-    document
-        .querySelectorAll(".booking-bar")
-        .forEach(bar => bar.remove());
+            wrapper.style.minWidth =
+                rack.clientWidth + "px";
 
-    renderTimeline();
+        }
 
-});
+    }
+);
