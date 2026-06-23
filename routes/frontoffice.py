@@ -99,8 +99,8 @@ def generate_reservations():
             "guest_name": "Rahul Sharma",
             "room": "STD-101",
             "category": "Standard",
-            "checkin": "2026-06-18",
-            "checkout": "2026-06-23",
+            "checkin": "2026-06-24",
+            "checkout": "2026-06-29",
             "status": "Reserved",
             "advance": 3000,
             "balance": 5000,
@@ -114,8 +114,8 @@ def generate_reservations():
             "guest_name": "Priya Singh",
             "room": "STD-102",
             "category": "Standard",
-            "checkin": "2026-06-18",
-            "checkout": "2026-06-24",
+            "checkin": "2026-06-23",
+            "checkout": "2026-06-29",
             "status": "Checked-In",
             "advance": 6000,
             "balance": 0,
@@ -129,8 +129,8 @@ def generate_reservations():
             "guest_name": "Amit Kumar",
             "room": "STD-103",
             "category": "Standard  ",
-            "checkin": "2026-06-18",
-            "checkout": "2026-06-24",
+            "checkin": "2026-06-23",
+            "checkout": "2026-06-29",
             "status": "Reserved",
             "advance": 4000,
             "balance": 7000,
@@ -144,8 +144,8 @@ def generate_reservations():
             "guest_name": "Neha Patel",
             "room": "VVIP-301",
             "category": "VVIP",
-            "checkin": "2026-06-18",
-            "checkout": "2026-06-25",
+            "checkin": "2026-06-23",
+            "checkout": "2026-06-30",
             "status": "Checked-In",
             "advance": 15000,
             "balance": 5000,
@@ -156,45 +156,62 @@ def generate_reservations():
     ]
 
     return reservations
-
 @frontoffice_bp.route("/frontoffice")
 def frontoffice():
 
     days = request.args.get("days", 30, type=int)
-    
-    print("DAYS =", days)
-
-    if days == 7:
-        day_width = 120
-    elif days == 15:
-        day_width = 80
-    else:
-        day_width = 45
 
     room_inventory = generate_room_inventory()
     reservations = generate_reservations()
 
-    start_date = datetime.today() - timedelta(days=5)
+    today = datetime.today()
+
+    if days == 365:
+
+        start_date = datetime(today.year, 1, 1)
+
+        total_days = (
+            datetime(today.year + 1, 1, 1)
+            - start_date
+        ).days
+
+    else:
+
+        start_date = today
+
+        total_days = days
 
     calendar_days = []
 
-    for i in range(days):
+    for i in range(total_days):
+
         day = start_date + timedelta(days=i)
 
         calendar_days.append({
+
             "date": day.strftime("%d"),
             "month": day.strftime("%b"),
-            "full_date": day.strftime("%Y-%m-%d")
+            "weekday": day.strftime("%a"),
+            "year": day.strftime("%Y"),
+            "full_date": day.strftime("%Y-%m-%d"),
+
+            "is_today": (
+                day.strftime("%Y-%m-%d")
+                ==
+                today.strftime("%Y-%m-%d")
+            )
+
         })
 
-
-
     return render_template(
+
         "departments/frontoffice/frontoffice.html",
+
         room_inventory=room_inventory,
         calendar_days=calendar_days,
         reservations=reservations,
-        day_width=day_width,
         days=days
+
     )
+
     

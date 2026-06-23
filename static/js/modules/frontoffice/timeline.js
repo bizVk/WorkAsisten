@@ -33,19 +33,60 @@ reservations.forEach(reservation => {
     if (cells.length === 0) {
         return;
     }
+const dates = Array.from(cells).map(
+    cell => cell.dataset.date
+);
 
-    const startIndex = Array.from(cells).findIndex(
-        cell => cell.dataset.date === reservation.checkin
+const startIndex = dates.indexOf(
+    reservation.checkin
+);
+
+console.log(
+    "Guest:",
+    reservation.guest_name
+);
+
+console.log(
+    "Checkin:",
+    reservation.checkin
+);
+
+console.log(
+    "startIndex:",
+    startIndex
+);
+
+console.log(
+    reservation.guest_name,
+    reservation.checkin,
+    startIndex
+);
+
+if(startIndex === -1){
+
+    console.log(
+        "Guest:",
+        reservation.guest_name
     );
 
-    if (startIndex === -1) {
+    console.log(
+        "Checkin:",
+        reservation.checkin
+    );
 
-        console.warn(
-            `Check-in date not found for ${reservation.guest_name}`
-        );
+    console.log(
+        "Available Dates:",
+        Array.from(cells)
+            .slice(0,20)
+            .map(c => c.dataset.date)
+    );
 
-        return;
-    }
+    console.warn(
+        `Check-in date not found for ${reservation.guest_name}`
+    );
+
+    return;
+}
 
     const cellWidth =
 parseFloat(
@@ -76,14 +117,20 @@ parseFloat(
         .replace(/\s+/g, "-");
 
     bar.classList.add(statusClass);
-    bar.style.left = `${startIndex * cellWidth}px`;
-    bar.style.width = `${nights * cellWidth}px`;
+    bar.style.left =
+    `${Math.round(startIndex * cellWidth)}px`;
+
+bar.style.width =
+    `${Math.round(nights * cellWidth)}px`;
     
     console.log("cellWidth =", cellWidth);
     console.log("nights =", nights);
 
-    bar.style.left = `${startIndex * cellWidth}px`;
-    bar.style.width = `${nights * cellWidth}px`;
+    bar.style.left =
+    `${Math.round(startIndex * cellWidth)}px`;
+
+bar.style.width =
+    `${Math.round(nights * cellWidth)}px`;
 
     bar.textContent = reservation.guest_name;
 
@@ -132,6 +179,20 @@ if (button) {
 
 }
 
+function goToToday(){
+
+    const currentDays =
+        parseInt(
+            new URLSearchParams(
+                window.location.search
+            ).get("days")
+        ) || 30;
+
+     window.location.href =
+        `/frontoffice?days=${currentDays}`;
+
+}
+
 // ==========================================
 // CALENDAR ZOOM
 // ==========================================
@@ -148,28 +209,21 @@ if (button) {
 
     let dayWidth;
 
-if (days === 7) {
-
-    dayWidth = Math.floor(
-        (availableWidth * 0.98) / days
-    );
-
+if(days <= 15){
+    dayWidth = 120;
 }
-else if (days === 15) {
-
-    dayWidth = Math.floor(
-        (availableWidth * 0.98) / days
-    );
-
+else if(days <= 30){
+    dayWidth = 60;
 }
-else {
-
-    dayWidth = Math.floor(
-        (availableWidth * 0.98) / days
-    );
-
+else if(days <= 90){
+    dayWidth = 35;
 }
-
+else if(days <= 180){
+    dayWidth = 25;
+}
+else{
+    dayWidth = 20;
+}
     document.documentElement.style.setProperty(
         "--day-width",
         dayWidth + "px"
@@ -180,9 +234,25 @@ else {
         days
     );
 
-    console.log(
-        "Day Width =", dayWidth
-    );
+   
+document.querySelectorAll(".room-timeline")
+.forEach(el => {
+    el.style.gridTemplateColumns =
+        `repeat(${days}, ${dayWidth}px)`;
+});
+
+document.querySelectorAll(".category-timeline")
+.forEach(el => {
+    el.style.gridTemplateColumns =
+        `repeat(${days}, ${dayWidth}px)`;
+});
+
+document.querySelectorAll(".calendar-days")
+.forEach(el => {
+    el.style.gridTemplateColumns =
+        `repeat(${days}, ${dayWidth}px)`;
+});
+
 }
    
 
@@ -217,6 +287,34 @@ wrapper.style.minWidth =
     console.log("Timeline rendered");
 
     }
+
+// ==========================================
+// WEEKDAY FUNCTION
+// ==========================================
+
+function updateWeekdays() {
+
+    document.querySelectorAll(".calendar-day").forEach(day => {
+
+        const dateEl = day.querySelector(".day-date");
+        const monthEl = day.querySelector(".day-month");
+        const weekEl = day.querySelector(".day-week");
+
+        if (!dateEl || !monthEl || !weekEl) return;
+
+        const dayNum = parseInt(dateEl.textContent.trim());
+        const month = monthEl.textContent.trim();
+
+        const currentYear = new Date().getFullYear();
+
+        const date = new Date(`${month} ${dayNum}, ${currentYear}`);
+
+        weekEl.textContent = date.toLocaleDateString("en-US", {
+            weekday: "short"
+        });
+    });
+}
+    
 // ==========================================
 // INIT
 // ==========================================

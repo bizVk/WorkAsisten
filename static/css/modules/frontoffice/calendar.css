@@ -1,5 +1,8 @@
-:root{
-    --day-width:120px;
+:root {
+    --room-column-width: 160px;
+    --header-height: 40px;
+    --row-height: 35px;
+    --day-width: 120px;
 }
 
 *{
@@ -15,7 +18,7 @@
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 6px 20px rgba(255,45,117,0.15);
-    overflow: hidden;
+    overflow:visible;
 }
 
 /* ==========================================
@@ -38,7 +41,7 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    overflow: hidden;
+
 }
 
 /* LEFT TITLE */
@@ -100,16 +103,26 @@
 ========================================== */
 
 .rack-calendar {
-    width: 100%;
     overflow-x: auto;
     overflow-y: auto;
-    height: calc(100vh - 100px);
-    
-}
 
+    width: 100%;
+    height: calc(100vh - 100px);
+
+    scroll-behavior: smooth;
+    position: relative;
+}
+ 
+.rack-calendar::-webkit-scrollbar {
+    height: 8px;
+    width:8px;
+}
+.rack-calendar::-webkit-scrollbar-thumb{
+    background:#999;
+    border-radius:4px;
+}
 .calendar-wrapper {
-    width: fit-content;
-    min-width: auto;
+    width:max-content;
 }
 
 /* ==========================================
@@ -120,19 +133,20 @@
     display: flex;
     position: sticky;
     top: 0;
-    z-index: 900;
+    z-index: 1000;
     background: #fff;
-    height: 35px;
+    height: var(--header-height);
     width: fit-content;
+    align-items: stretch;
 }
 
 /* ROOM HEADER CELL */
 
 .header-spacer {
-    width: 160px;
-    min-width: 160px;
-    height: 35px;
-    
+    width: var(--room-column-width);
+    min-width: var(--room-column-width);
+    height: var(--header-height);
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,12 +154,12 @@
     background: linear-gradient(135deg,#ff2d75,#ff5a5a);
     color: white;
     font-weight: 600;
-
+    gap:1px;
     position: sticky;
     left: 0;
-    
+    line-height: 1;
 
-    z-index: 500;
+    z-index: 1200;
 
     border-right: 1px solid #eee;
     border-bottom: 1px solid #eee;
@@ -156,33 +170,41 @@
     display: grid;
     grid-template-columns:
         repeat(var(--days), var(--day-width));
-     width: fit-content;
-    }
+    width: fit-content;
+    align-items: stretch;
+}
 
 .calendar-day {
     width: var(--day-width);
     min-width:var(--day-width);
-
+    height: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    gap : 1px;
     border-right: 1px solid #eee;
     border-bottom: 1px solid #eee;
+    line-height: 1;
 }
 
 .day-date {
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 10px;
+    font-weight: 700;
     color: #ff2d75;
+     line-height: 1;
 }
 
 .day-month {
-    font-size: 11px;
+    font-size: 10px;
     color: #777;
+     line-height: 1;
 }
-
+.day-week{
+    font-size:10px;
+    color:#666;
+     line-height: 1;
+}
 /* ==========================================
    BODY
 ========================================== */
@@ -191,6 +213,8 @@
     position: relative;
     width: fit-content;
     display: inline-block;
+    overflow:visible;
+
 }
 
 /* ==========================================
@@ -199,13 +223,13 @@
 
 .rack-row {
     display: flex;
-    height: 35px;
+    height: var(--row-height);
 }
 
 .room-name {
-    width: 160px;
-    min-width: 160px;
-    height: 35px;
+    width: var(--room-column-width);
+    min-width: var(--room-column-width);
+    height: var(--row-height);
 
     display: flex;
     align-items: center;
@@ -219,7 +243,7 @@
 
     position: sticky;
     left: 0;
-    z-index: 90;
+    z-index: 900;
 
     font-size: 12px;
     font-weight: 500;
@@ -238,7 +262,7 @@
     width: 160px;
     min-width: 160px;
     height: 35px;
-
+    
     display: flex;
     align-items: center;
 
@@ -354,4 +378,11 @@ transition:all .2s ease;
         margin-top: 8px;
     }
 
+}
+
+.calendar-day.today{
+    background:#ff2d75;
+    color:white;
+    border-radius:6px;
+    font-weight:700;
 }
